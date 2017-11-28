@@ -1,9 +1,7 @@
 package net.kdilla.wethariumapp;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.PopupMenu;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
@@ -20,7 +18,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity {
     List<String> elements;
@@ -94,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.mymenu, menu);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 
@@ -136,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void showPopup(View view) {
         PopupMenu popupMenu = new PopupMenu(this, view);
-        popupMenu.inflate(R.menu.mymenu);
+        popupMenu.inflate(R.menu.main_menu);
         popupMenu.show();
     }
 
@@ -179,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void editElement(List<Integer> files) {
-//    private void editElement(int id) {
+
         String selected = "(";
         for (int i = 0; i < files.size(); i++) {
             selected += files.get(i);
@@ -207,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
         int b = 1 + (int) (Math.random() * 100);
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(getApplicationContext(),
-                "delete element\n" + selected + "a= " + a + ", b= " + b + "\na-b=" + (a - b),
+                "delete element:" + selected + "\na= " + a + ", b= " + b + "\na-b=" + (a - b),
                 duration);
         toast.show();
     }
